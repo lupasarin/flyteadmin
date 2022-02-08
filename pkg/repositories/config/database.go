@@ -11,6 +11,7 @@ type DbConfig struct {
 	User         string `json:"user"`
 	Password     string `json:"password"`
 	ExtraOptions string `json:"options"`
+	MaxConnections int `json:"maxConnections"`
 }
 
 func NewDbConfig(dbConfigValues interfaces.DbConfig) DbConfig {

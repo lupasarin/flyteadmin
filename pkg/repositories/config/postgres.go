@@ -77,6 +77,7 @@ func OpenDbConnection(config DbConnectionConfigProvider) *gorm.DB {
 		panic(err)
 	}
 	db.LogMode(config.IsDebug())
+	db.DB().SetMaxOpenConns(config.(*PostgresConfigProvider).config.MaxConnections) // TODO try to avoid casting
 	validations.RegisterCallbacks(db)
 	return db
 }
